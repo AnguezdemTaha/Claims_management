@@ -1,0 +1,36 @@
+exam_symfony_reclamation:
+    resource: "@ExamSymfonyBundle/Controller/ReclamationController.php"
+    type:     annotation
+
+exam_symfony_client:
+    resource: "@ExamSymfonyBundle/Controller/ClientController.php"
+    type:     annotation
+
+exam_symfony:
+    resource: "@ExamSymfonyBundle/Resources/config/routing.yml"
+    prefix:   /exam_symfony
+
+
+
+
+
+exam_symfony_client:
+    resource: "@ExamSymfonyBundle/Resources/config/routing/client.yml"
+    prefix:   /client
+exam_symfony_client:
+    resource: "@ExamSymfonyBundle/Resources/config/routing/reclamation.yml"
+    prefix:   /reclamation
+
+
+
+ensias_grh:
+    resource: "@ensiasGRHBundle/Resources/config/routing.yml"
+    prefix:   /zellou
+
+ensias_grh_employe:
+    resource: "@ensiasGRHBundle/Resources/config/routing/employe.yml"
+    prefix:   /employe
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

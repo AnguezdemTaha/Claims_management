@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Clients list</h1>
+    
+    <ul>
+        <li >
+            <a href="{{ path('client_new') }}">Create a new client</a>
+
+            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+        </li>
+    </ul>
+    
+<link rel="stylesheet" href="{{asset("css/bootstrap.min.css")}}">
+<div id="container"> 
+    <div id="row">
+    <div class="col-md-10 col-lg-push-1" >
+    
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Email</th>
+                <th>Adress</th>
+                <th>Date de naissance</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for client in clients %}
+            <tr>
+                <td><a href="{{ path('client_show', { 'id': client.id }) }}">{{ client.id }}</a></td>
+                <td>{{ client.nom }}</td>
+                <td>{{ client.prenom }}</td>
+                <td>{{ client.email }}</td>
+                <td>{{ client.adress }}</td>
+                <td>{% if client.dateNaissance %}{{ client.dateNaissance|date('Y-m-d') }}{% endif %}</td>
+                <td>
+                    <ul class="list-group list-group-horizontal">
+                        <li class="list-group-item">
+                            <a href="{{ path('client_show', { 'id': client.id }) }}"><p class="text-info">show</p></a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="{{ path('client_edit', { 'id': client.id }) }}"<p class="text-warning">edit</p></a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+    
+    </div>
+</div>
+{% endblock %}
