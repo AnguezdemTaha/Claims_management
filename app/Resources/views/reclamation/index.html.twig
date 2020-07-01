@@ -1,9 +1,23 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Reclamations list</h1>
+    <link rel="stylesheet" href="{{asset("css/bootstrap.min.css")}}">
+    <link rel="stylesheet" href="{{asset("css/style1234.css")}}">
+<div id="container">
+<center><h1>Reclamations list</h1></center>
+    <div class="row">
+    <div class="col-md-10 col-lg-push-1" > 
+        <ul>
+        <li>
+            <a href="{{ path('reclamation_new') }}"><input type="button" class="btn btn-warning" value="Ajouter un neuveux reclamation"></a>
+        </li>
+    </ul>
+    </div>
+    </div>
 
-    <table>
+    <div id="row">
+    <div class="col-md-10 col-lg-push-1" >
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th>Id</th>
@@ -22,11 +36,11 @@
                 <td>{{ reclamation.contenu }}</td>
                 <td>
                     <ul>
-                        <li>
-                            <a href="{{ path('reclamation_show', { 'id': reclamation.id }) }}">show</a>
+                        <li id="horiz">
+                            <a href="{{ path('reclamation_show', { 'id': reclamation.id }) }}"><input type="button" class="btn btn-info" value="Show"></a>
                         </li>
-                        <li>
-                            <a href="{{ path('reclamation_edit', { 'id': reclamation.id }) }}">edit</a>
+                        <li id="horiz">
+                            <a href="{{ path('reclamation_edit', { 'id': reclamation.id }) }}"><input type="button" class="btn btn-warning" value="Edit"></a>
                         </li>
                     </ul>
                 </td>
@@ -34,10 +48,8 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('reclamation_new') }}">Create a new reclamation</a>
-        </li>
-    </ul>
+    </div>
+    </div>
+    
+</div>
 {% endblock %}

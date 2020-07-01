@@ -1,10 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Client edit</h1>
-
 <link rel="stylesheet" href="{{asset("css/bootstrap.min.css")}}">
+<link rel="stylesheet" href="{{asset("css/style1234.css")}}">
 
+<div id="container">
+    <center><h1>Modifier le client</h1></center>
+    <div class="col-md-4 col-lg-push-4" >
     {{ form_start(edit_form) }}
         
         {# {{ form_widget(edit_form) }} #}
@@ -16,17 +18,38 @@
             {{form_widget(edit_form.prenom,{'attr':{'class':'form-control'}})}}
         </div>
 
-        <input type="submit" value="Edit" />
+        <div class="form-group">
+            {{form_label(edit_form.email)}}
+            {{form_widget(edit_form.email,{'attr':{'class':'form-control'}})}}
+        </div>
+
+        <div class="form-group">
+            {{form_label(edit_form.adress)}}
+            {{form_widget(edit_form.adress,{'attr':{'class':'form-control'}})}}
+        </div>
+        <div class="form-group">
+            {{form_label(edit_form.dateNaissance)}}
+            {{form_widget(edit_form.dateNaissance,{'attr':{'class':'form-control'}})}}
+        </div>
+        <div id="buttons">
+        <ul>
+        <li id="horiz">
+            <a href="{{ path('client_index') }}"><input type="button" class="btn btn-warning" value="Retourner"></a>
+        </li>
+        <li id="horiz"><input class="btn btn-success" type="submit" value="Modifier" /></li>
+        
+
     {{ form_end(edit_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('client_index') }}">Back to the list</a>
-        </li>
-        <li>
+    
+     
+        <li id="horiz">
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input class="btn btn-danger" type="submit" value="Supprimer">
             {{ form_end(delete_form) }}
         </li>
-    </ul>
+        </ul>
+    </div>
+    </div>
+    </div>
 {% endblock %}

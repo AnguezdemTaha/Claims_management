@@ -1,26 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Client</h1>
-
-<style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-</style>
-    <table style="width:100%">
+    <link rel="stylesheet" href="{{asset("css/bootstrap.min.css")}}">
+    <link rel="stylesheet" href="{{asset("css/style1234.css")}}">
+<div id="container">
+<center><h1>Client</h1></center>
+    <div class="col-md-10 col-lg-push-1" >
+    <table class="table table-bordered">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -49,17 +35,21 @@ tr:nth-child(even) {
         </tbody>
     </table>
 
+    <div id="buttons">
     <ul>
-        <li>
-            <a href="{{ path('client_index') }}">Back to the list</a>
+        <li id="horiz">
+            <a href="{{ path('client_index') }}"><input class="btn btn-warning" type="submit" value="Retourner"></a>
         </li>
-        <li>
-            <a href="{{ path('client_edit', { 'id': client.id }) }}">Edit</a>
+        <li id="horiz">
+            <a href="{{ path('client_edit', { 'id': client.id }) }}"><input class="btn btn-primary" type="submit" value="Modifier"></a>
         </li>
-        <li>
+        <li id="horiz">
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input class="btn btn-danger" type="submit" value="Supprimer">
             {{ form_end(delete_form) }}
         </li>
     </ul>
+    </div>
+    </div>
+    </div>
 {% endblock %}

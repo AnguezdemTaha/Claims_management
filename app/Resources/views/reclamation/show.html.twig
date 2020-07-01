@@ -1,9 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Reclamation</h1>
+    <link rel="stylesheet" href="{{asset("css/bootstrap.min.css")}}">
+    <link rel="stylesheet" href="{{asset("css/style1234.css")}}">
+<div id="container">
+<center><h1>Reclamation</h1></center>
 
-    <table>
+    <div class="col-md-10 col-lg-push-1" >
+    <table class="table table-bordered">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -23,19 +27,23 @@
             </tr>
         </tbody>
     </table>
-
+    <div id="buttons">
     <ul>
-        <li>
-            <a href="{{ path('reclamation_index') }}">Back to the list</a>
+        <li id="horiz">
+            <a href="{{ path('reclamation_index') }}"><input class="btn btn-warning" type="submit" value="Retourner"></a>
         </li>
-        <li>
-            <a href="{{ path('reclamation_edit', { 'id': reclamation.id }) }}">Edit</a>
+        <li id="horiz">
+            <a href="{{ path('reclamation_edit', { 'id': reclamation.id }) }}"><input class="btn btn-primary" type="submit" value="Modifier"></a>
         </li>
-        <li>
+        <li id="horiz">
             {{ form_start(delete_form) }}
             
-                <input type="submit" value="Delete">
+                <input class="btn btn-danger" type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </li>
     </ul>
+    </div>
+    </div>
+    </div>
+    
 {% endblock %}
