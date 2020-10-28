@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
+{% block body %} 
 <link rel="stylesheet" href="{{asset("css/bootstrap.min.css")}}">
 <link rel="stylesheet" href="{{asset("css/style1234.css")}}">
 <div id="container">
@@ -11,7 +11,9 @@
     <ul>
         <li >
             <center>
-            <a href="{{ path('client_new') }}"><input type="button" class="btn btn-warning" value="Ajouter un neuveux client"></a>
+            <a href="{{ path('client_new') }}"><input type="button" class="btn btn-warning" value="Ajouter un nouveau client"></a>
+<a href="{{ path('reclamation_index') }}"><input type="button" class="btn btn-warning" value="reclamation"></a>
+
             </center>
             
         </li>
@@ -26,9 +28,9 @@
             <tr>
                 <th>Id</th>
                 <th>Nom</th>
-                <th>Prénom</th>
+                <th>Prenom</th>
                 <th>Email</th>
-                <th>Adress</th>
+                <th>Adresse</th>
                 <th>Date de naissance</th>
                 <th>Actions</th>
             </tr>
